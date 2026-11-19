@@ -21,7 +21,7 @@
       color-scheme: light dark;
     }
 
-    /* Portrait centré dans la colonne de gauche sur ordinateur */
+    /* Portrait */
     .hero-portrait {
       width: min(100%, 425px);
       margin: 0 auto;
@@ -51,10 +51,52 @@
       }
     }
 
-    /* Sur mobile, le portrait est centré sous la présentation */
+    /* Logos des logiciels */
+    .software-logo {
+      display: block;
+      width: 48px;
+      height: 48px;
+      flex: none;
+      object-fit: contain;
+      padding: 4px;
+      background: #fff;
+      border-radius: 7px;
+    }
+
+    .software-list {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px 20px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .software-list li {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .software-list .software-logo {
+      width: 30px;
+      height: 30px;
+    }
+
     @media (max-width: 680px) {
       .hero-portrait {
         width: min(90%, 320px);
+      }
+
+      .tools-grid .tool {
+        flex-wrap: wrap;
+      }
+
+      .tools-grid .software-logo {
+        width: 36px;
+        height: 36px;
       }
     }
 
@@ -99,7 +141,7 @@
       cursor: pointer;
     }
 
-    /* Le thème suit automatiquement le réglage de l’appareil */
+    /* Mode sombre automatique */
     @media (prefers-color-scheme: dark) {
       :root {
         --paper: #101a29;
@@ -192,7 +234,6 @@
         border-color: #7388a5;
       }
 
-      :focus-visible,
       .contact-form :focus-visible,
       button:focus-visible,
       a:focus-visible,
@@ -286,16 +327,12 @@
       </div>
 
       <div class="hero-art hero-portrait">
-        <img
-          src="assets/aymangamari.png"
-          alt="Portrait d’Ayman Gamari"
-          width="893"
-          height="1115"
-        >
+        <img src="assets/aymangamari.png"
+             alt="Portrait d’Ayman Gamari"
+             width="893" height="1115">
       </div>
     </section>
 
-    <!-- Informations clés -->
     <div class="facts section-shell" aria-label="Informations clés">
       <div>
         <span class="fact-label">DISPONIBILITÉ</span>
@@ -458,7 +495,8 @@
 
           <div class="experience-main">
             <div class="stage-org">
-              <img src="assets/srm-logo.png" alt="Logo Société Régionale Multiservices Fès-Meknès"
+              <img src="assets/srm-logo.png"
+                   alt="Logo Société Régionale Multiservices Fès-Meknès"
                    class="stage-logo stage-logo-srm" loading="lazy">
               <span class="org">SRM FÈS-MEKNÈS</span>
             </div>
@@ -499,7 +537,7 @@
       </div>
     </section>
 
-    <!-- Compétences -->
+    <!-- Compétences et logiciels -->
     <section id="competences" class="skills-section section-spacing"
              aria-labelledby="skills-title">
       <div class="section-shell">
@@ -524,6 +562,7 @@
               Études d’éclairage, de réseaux VDI et de sécurité incendie.
             </p>
           </article>
+
           <article>
             <span class="domain-no">02 / ÉNERGIE &amp; RÉSEAUX</span>
             <h3>Modéliser &amp; simuler</h3>
@@ -533,6 +572,7 @@
               flux de puissance sur des réseaux électriques avec ETAP.
             </p>
           </article>
+
           <article>
             <span class="domain-no">03 / MÉTHODE</span>
             <h3>Documenter &amp; vérifier</h3>
@@ -544,31 +584,106 @@
           </article>
         </div>
 
+        <!-- Logiciels principaux -->
         <div class="tools-grid">
           <div class="tool">
-            <span class="tool-icon">A</span>
-            <div><strong>AutoCAD</strong><span>Plans &amp; schémas électriques</span></div>
+            <img class="software-logo" alt="" width="48" height="48" loading="lazy"
+                 src="https://cdn11.bigcommerce.com/s-2snnk3/images/stencil/1280x1280/products/24433/510139/C1RK1-WW1762-L158-1__03829.1763000387.jpg?c=2">
+            <div>
+              <strong>AutoCAD</strong>
+              <span>Plans &amp; schémas électriques</span>
+            </div>
           </div>
+
           <div class="tool">
-            <span class="tool-icon">C</span>
-            <div><strong>Caneco BT</strong><span>Dimensionnement BT</span></div>
+            <img class="software-logo" alt="" width="48" height="48" loading="lazy"
+                 src="https://www.se.com/ch/de/assets/v2/526/media/485716/1200/CanecoBT-IC-800x450.jpg">
+            <div>
+              <strong>Caneco BT</strong>
+              <span>Dimensionnement BT</span>
+            </div>
           </div>
+
           <div class="tool">
-            <span class="tool-icon">D</span>
-            <div><strong>DIALux evo</strong><span>Études d’éclairage</span></div>
+            <img class="software-logo" alt="" width="48" height="48" loading="lazy"
+                 src="https://sc.filehippo.net/images/t_app-icon-l/p/9489d284-2e7e-4f7a-b60c-23533dfae3b8/205762315/dialux-evo-logo">
+            <div>
+              <strong>DIALux evo</strong>
+              <span>Études d’éclairage</span>
+            </div>
           </div>
+
           <div class="tool">
-            <span class="tool-icon">R</span>
-            <div><strong>ETAP</strong><span>Réseaux électriques · flux de puissance</span></div>
+            <img class="software-logo" alt="" width="48" height="48" loading="lazy"
+                 src="https://cdn.forumautomation.com/original/2X/0/0c1682c1af3a261195be74798319d4de0707ba48.jpeg">
+            <div>
+              <strong>ETAP</strong>
+              <span>Réseaux électriques · flux de puissance</span>
+            </div>
           </div>
         </div>
 
+        <!-- Logiciels et langages complémentaires -->
         <div class="other-tools">
           <span>OUTILS COMPLÉMENTAIRES</span>
-          <p>
-            PVsyst · SketchUp · TIA Portal / WinCC · MATLAB / Simulink ·
-            LabVIEW · Proteus · Quartus · Python · C/C++ · Excel
-          </p>
+
+          <ul class="software-list">
+            <li>
+              <img class="software-logo" alt="" loading="lazy"
+                   src="https://images.squarespace-cdn.com/content/v1/614da33dee492506e8d4c535/aa2867a6-143f-462b-b605-3c0fc79e6946/PVsyst.png">
+              <span>PVsyst</span>
+            </li>
+            <li>
+              <img class="software-logo" alt="" loading="lazy"
+                   src="https://global.discourse-cdn.com/sketchup/optimized/3X/4/6/46bde2c932ce6ced7308d089f8550deb5ae9eaa7_2_500x500.png">
+              <span>SketchUp</span>
+            </li>
+            <li>
+              <img class="software-logo" alt="" loading="lazy"
+                   src="https://cdn11.bigcommerce.com/s-ftsflnse4o/images/stencil/608x608/products/1106233/4446445/D_749451-MLB70662217969_072023-O__18202.1732315691.jpg?c=1">
+              <span>TIA Portal / WinCC</span>
+            </li>
+            <li>
+              <img class="software-logo" alt="" loading="lazy"
+                   src="https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/matlab/matlab-original.svg">
+              <span>MATLAB / Simulink</span>
+            </li>
+            <li>
+              <img class="software-logo" alt="" loading="lazy"
+                   src="https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/labview/labview-original.svg">
+              <span>LabVIEW</span>
+            </li>
+            <li>
+              <img class="software-logo" alt="" loading="lazy"
+                   src="https://img.utdstc.com/icon/347/19c/34719c3f02a2ec36f4349f19c68cf8f4800445c531ac83d63f0bc87eed40a219%3A600">
+              <span>Proteus</span>
+            </li>
+            <li>
+              <img class="software-logo" alt="" loading="lazy"
+                   src="https://www.nicepng.com/png/detail/49-496645_intel-quartus-prime-design-software-intel.png">
+              <span>Quartus</span>
+            </li>
+            <li>
+              <img class="software-logo" alt="" loading="lazy"
+                   src="https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/python/python-original.svg">
+              <span>Python</span>
+            </li>
+            <li>
+              <img class="software-logo" alt="" loading="lazy"
+                   src="https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/c/c-original.svg">
+              <span>C</span>
+            </li>
+            <li>
+              <img class="software-logo" alt="" loading="lazy"
+                   src="https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/cplusplus/cplusplus-original.svg">
+              <span>C++</span>
+            </li>
+            <li>
+              <img class="software-logo" alt="" loading="lazy"
+                   src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons@main/png/microsoft-excel.png">
+              <span>Excel</span>
+            </li>
+          </ul>
         </div>
 
         <div class="languages">
@@ -584,7 +699,6 @@
              aria-labelledby="contact-title">
       <div>
         <p class="eyebrow"><span>05</span> CONTACT</p>
-
         <h2 id="contact-title">Un projet à étudier&nbsp;?<br><em>Échangeons.</em></h2>
 
         <p>
@@ -602,27 +716,25 @@
       <div class="contact-card">
         <h3 id="contact-form-title">Envoyez-moi un message</h3>
 
-        <!-- Après publication, soumettre le formulaire une première fois
-             et confirmer l’activation dans gamariaymanee@gmail.com. -->
-        <form
-          class="contact-form"
-          aria-labelledby="contact-form-title"
-          action="https://formsubmit.co/gamariaymanee@gmail.com"
-          method="post"
-        >
+        <form class="contact-form"
+              aria-labelledby="contact-form-title"
+              action="https://formsubmit.co/gamariaymanee@gmail.com"
+              method="post">
           <input type="hidden" name="_subject"
                  value="Nouveau message depuis le portfolio d’Ayman Gamari">
 
           <label for="contact-email">Votre adresse e-mail</label>
-          <input id="contact-email" type="email" name="email" autocomplete="email" required>
+          <input id="contact-email" type="email" name="email"
+                 autocomplete="email" required>
 
           <label for="contact-message">Votre message</label>
           <textarea id="contact-message" name="message" rows="5" required></textarea>
 
-          <button type="submit" class="button button-dark">Envoyer le message</button>
+          <button type="submit" class="button button-dark">
+            Envoyer le message
+          </button>
         </form>
 
-        <!-- Adresse de contact direct utilisée par le bouton de copie dans app.js -->
         <a class="email-link"
            href="mailto:aymangamari0@gmail.com?subject=Stage%20PFE%20en%20g%C3%A9nie%20%C3%A9lectrique">
           aymangamari0@gmail.com <span aria-hidden="true">↗</span>
@@ -653,7 +765,7 @@
     <a href="#accueil">Retour en haut <span aria-hidden="true">↑</span></a>
   </footer>
 
-  <!-- Fenêtre des fiches projets utilisée par app.js -->
+  <!-- Les fiches projets sont alimentées par app.js -->
   <dialog id="project-dialog" aria-labelledby="dialog-title">
     <div class="dialog-header">
       <span id="dialog-category" class="eyebrow"></span>
