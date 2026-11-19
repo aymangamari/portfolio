@@ -49,6 +49,87 @@ const projects = [
 
 const grid = document.getElementById('project-grid');
 const escapeHTML = (value) => String(value).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+const projectFigures = {
+  "etap": [
+    {
+      "file": "etap.webp",
+      "title": "Flux de puissance sous ETAP",
+      "caption": "Réseau à trois jeux de barres · TP de réseaux électriques, figure 3.",
+      "width": 1499,
+      "height": 942
+    }
+  ],
+  "automation": [
+    {
+      "file": "wincc.webp",
+      "title": "Convoyeur de bouteilles sous WinCC",
+      "caption": "Animation du déplacement de la bouteille · rapport du projet en équipe, figure 5.3.",
+      "width": 762,
+      "height": 297
+    }
+  ],
+  "commande": [
+    {
+      "file": "mpc.webp",
+      "title": "Commande prédictive sous MATLAB",
+      "caption": "Commande, suivi de consigne et erreur dans le cas nominal · TP de commande prédictive, figure 1.",
+      "width": 2048,
+      "height": 1205
+    }
+  ],
+  "embarque": [
+    {
+      "file": "pic.webp",
+      "title": "Commande PWM d’une LED",
+      "caption": "Simulation du PIC16F877 et signal PWM à l’oscilloscope sous Proteus · rapport du TP, figure 1.",
+      "width": 2048,
+      "height": 1075
+    }
+  ],
+  "instrumentation": [
+    {
+      "file": "fpga.webp",
+      "title": "Additionneur sur carte FPGA DE0",
+      "caption": "Photo du banc avec le résultat sur les afficheurs à sept segments · TP FPGA en équipe, figure 5.",
+      "width": 1841,
+      "height": 1700
+    },
+    {
+      "file": "labview.webp",
+      "title": "LabVIEW — Calcul des puissances et analyse des signaux",
+      "caption": "Calcul des puissances active, réactive et apparente, traitement des alarmes et analyse spectrale par FFT.",
+      "width": 2048,
+      "height": 1280
+    }
+  ],
+  "bt": [
+    {
+      "file": "bilan-excel.webp",
+      "title": "Basse tension — Bilan de puissance sous Excel",
+      "caption": "Calcul des puissances par circuit pour les ateliers et les bureaux. Puissance apparente totale retenue : 115,75 kVA.",
+      "width": 2048,
+      "height": 1280
+    }
+  ]
+};
+
+for (const project of projects) {
+  const figures = projectFigures[project.id];
+  if (!figures) continue;
+  const cover = figures[0];
+  project.image = 'assets/projets/' + cover.file;
+  project.imageAlt = cover.title;
+  project.label = project.id === 'instrumentation' ? 'PHOTO DU BANC FPGA' : cover.title.toLocaleUpperCase('fr');
+  const gallery = figures.map(figure => {
+    const url = 'assets/projets/' + figure.file;
+    return `<figure class="project-figure"><a href="${url}" target="_blank" rel="noopener" aria-label="Agrandir : ${escapeHTML(figure.title)}"><img src="${url}" width="${figure.width}" height="${figure.height}" alt="${escapeHTML(figure.title)}" loading="lazy"></a><figcaption><strong>${escapeHTML(figure.title)}</strong> · ${escapeHTML(figure.caption)}</figcaption></figure>`;
+  }).join('');
+  const workbook = project.id === 'bt' ? '<p><a class="text-link" href="assets/projets/MiniPjIE.xlsx" download>Télécharger le bilan de puissance (Excel)</a></p>' : '';
+  project.visuals = gallery + workbook;
+  project.overview += gallery + workbook;
+  project.output += workbook;
+}
+
 grid.innerHTML = projects.map((p,i)=>`<article class="project-card" data-category="${p.filter}"><div class="project-visual">${p.image?`<img src="${p.image}" alt="${escapeHTML(p.imageAlt||'Modélisation SketchUp de l’implantation photovoltaïque du siège SRM-FM')}" width="1600" height="1000" loading="lazy">`:p.visual}<span class="project-number">${String(i+1).padStart(2,'0')} /</span><span class="project-badge ${p.id==='cfo'?'ongoing':''}">${escapeHTML(p.status)}</span><span class="visual-label">${p.label}</span></div><div class="project-card-body"><div class="project-category">${escapeHTML(p.category)}</div><h3>${escapeHTML(p.title)}</h3><p>${escapeHTML(p.summary)}</p><div class="project-tools">${p.tools.map(t=>`<span>${escapeHTML(t)}</span>`).join('')}</div><button class="project-link" data-open="${p.id}" aria-label="Découvrir : ${escapeHTML(p.title)}">Découvrir le projet <span aria-hidden="true">↗</span></button></div></article>`).join('');
 
 const filters = [...document.querySelectorAll('[data-filter]')];
@@ -126,3 +207,4 @@ if('IntersectionObserver' in window){
   },{rootMargin:'-20% 0px -60% 0px'});
   document.querySelectorAll('main section[id]').forEach(section=>observer.observe(section));
 }
+
