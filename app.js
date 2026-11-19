@@ -50,6 +50,29 @@ const projects = [
 const grid = document.getElementById('project-grid');
 const escapeHTML = (value) => String(value).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 const projectFigures = {
+  "htb": [
+  {
+    "file": "htb-sectionneur.webp",
+    "title": "Sectionneur tripolaire",
+    "caption": "Rapport de stage ONEE-BE · figure 2.17 · Sectionneur tripolaire.",
+    "width": 868,
+    "height": 730
+  },
+  {
+    "file": "htb-transformateur.webp",
+    "title": "Transformateur de puissance",
+    "caption": "Rapport de stage ONEE-BE · figure 2.1 · Schéma des constituants du transformateur.",
+    "width": 978,
+    "height": 720
+  },
+  {
+    "file": "htb-disjoncteur.webp",
+    "title": "Disjoncteur HTB et commande",
+    "caption": "Rapport de stage ONEE-BE · figure 2.10 · Disjoncteur HTB et commande.",
+    "width": 1184,
+    "height": 446
+  }
+],
   "etap": [
     {
       "file": "etap.webp",
@@ -207,4 +230,5 @@ if('IntersectionObserver' in window){
   },{rootMargin:'-20% 0px -60% 0px'});
   document.querySelectorAll('main section[id]').forEach(section=>observer.observe(section));
 }
+
 
