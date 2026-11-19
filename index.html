@@ -241,6 +241,15 @@
         outline-color: var(--accent);
       }
     }
+    .formation-logo, .formation-cpge {
+      width: 76px; height: 54px; margin-bottom: 12px;
+      border-radius: 4px; background: #fff;
+    }
+    .formation-logo { display: block; object-fit: contain; padding: 3px; }
+    .formation-cpge {
+      display: grid; place-items: center; font: 700 19px/1 Arial, sans-serif;
+      color: #163863; border: 1px solid #dbe5f2; letter-spacing: .06em;
+    }
   </style>
 </head>
 
@@ -525,11 +534,13 @@
       <div class="education">
         <h3>La formation derrière la démarche</h3>
         <div>
+          <img class="formation-logo" src="data:image/webp;base64,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" width="76" height="54" alt="ENSA Agadir">
           <span>2023 — 2027</span>
           <strong>Cycle d’ingénieur · Génie électrique</strong>
           <p>ENSA Agadir · Systèmes électriques et mobilité durable</p>
         </div>
         <div>
+          <div class="formation-cpge" aria-hidden="true">CPGE</div>
           <span>2021 — 2023</span>
           <strong>Classes préparatoires · PSI</strong>
           <p>Lycée Omar Ibn Al-Khattab</p>
@@ -815,4 +826,5 @@
   </dialog>
 </body>
 </html>
+
 
